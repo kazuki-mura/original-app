@@ -1,0 +1,52 @@
+<%= form_with(model: @schedule, local: true) do |f| %>
+
+  <div class="content">
+    <%= f.label :client, '顧客名' %>
+    <%= f.text_field :client %>
+  </div>
+    
+  <div class="content">
+    <%= f.label :person, '担当者' %>
+    <%= f.text_field :person %>
+  </div>
+
+  <div class="content">
+    <%= f.label :content_id, '内容' %>
+    <%= f.collection_select(:content_id, Content.all, :id, :name, {}, {}) %>
+  </div>
+
+  <div class="content">
+    <%= f.label :aim, '目的' %>
+    <%= f.text_area :aim %>
+  </div>
+
+  <div class="content">
+    <%= f.label :time, '時間' %>
+    <%= f.text_field :time %>
+  </div>
+
+ <div class="content">
+    <%= f.label :product_id, '製品' %>
+    <%= f.collection_select(:product_id, Product.all, :id, :name, {}, {}) %>
+  </div>
+ 
+  <div class="content">
+    <%= f.label :report, '活動報告' %>
+    <%= f.text_area :report %>
+  </div>
+ 
+  <div class="content">
+    <%= f.label :other, 'その他' %>
+    <%= f.text_area :other %>
+  </div>
+
+<div class="content">
+    <%= f.label :response_id, '製品' %>
+    <%= f.collection_select(:response_id, Response.all, :id, :name, {}, {}) %>
+  </div>
+
+  <div class="submit">
+    <%= f.submit '登録'%>
+  </div>
+
+<% end %>
