@@ -15,10 +15,10 @@ ActiveRecord::Schema.define(version: 2021_07_15_113208) do
   create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "client", null: false
     t.string "person"
-    t.integer "content", null: false
+    t.integer "content_id", null: false
     t.text "aim"
     t.string "time"
-    t.integer "product", null: false
+    t.integer "product_id", null: false
     t.text "report"
     t.text "other"
     t.integer "response", null: false
