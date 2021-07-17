@@ -11,6 +11,7 @@ class CreateSchedules < ActiveRecord::Migration[6.0]
       t.text       :other
       t.integer    :response_id,      null: false
       t.references :user,             null: false, foreign_key: true
+      t.datetime :start_time
       t.timestamps
     end
   end

@@ -40,10 +40,17 @@
     <%= f.text_area :other %>
   </div>
 
+
 <div class="content">
-    <%= f.label :response_id, '製品' %>
+    <%= f.label :response_id, '評価' %>
     <%= f.collection_select(:response_id, Response.all, :id, :name, {}, {}) %>
   </div>
+
+<div class="content">
+    <%= f.label :start_time, '次回訪問' %>
+    <%= f.date_field :start_time %>
+  </div>
+
 
   <div class="submit">
     <%= f.submit '登録'%>

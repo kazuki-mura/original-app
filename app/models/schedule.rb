@@ -2,6 +2,7 @@ class Schedule < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :content
   belongs_to :product
+  belongs_to :response
 
   # validates :title, :text, presence: true
   with_options presence: true do
