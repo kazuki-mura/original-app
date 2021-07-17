@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 2021_07_15_113208) do
     t.string "person"
     t.integer "content", null: false
     t.text "aim"
-    t.integer "time"
+    t.string "time"
     t.integer "product", null: false
     t.text "report"
-    t.text "othert"
+    t.text "other"
     t.integer "response", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
