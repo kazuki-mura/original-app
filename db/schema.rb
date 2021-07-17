@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2021_07_15_113208) do
     t.integer "product_id", null: false
     t.text "report"
     t.text "other"
-    t.integer "response", null: false
+    t.integer "response_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
