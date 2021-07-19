@@ -60,3 +60,5 @@ gem 'simple_calendar', '~> 2.0'
 gem 'active_hash'
 
 gem 'rails-i18n'
+
+gem "jquery-rails"

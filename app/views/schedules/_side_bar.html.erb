@@ -1,8 +1,13 @@
-<div class="side-bar-header">
+<div class="side-bar">
   <div class="report">
-    <div>
+    <div class='all-list'>
         <p>投稿者一覧</p>
     </div>
+    <% @user.each do |user| %>
+        <div class='user-name'>
+          <%= link_to user.last_name + user.first_name%>
+        </div>
+      <% end %>
   </div>
 </div>
 

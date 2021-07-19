@@ -3,7 +3,7 @@
 }
 
 .chat {
-  width: calc(100vw - 200px);
+  width: calc(100vw - 150px);
   background-color: #ffffff;
 }
 
@@ -26,4 +26,39 @@
 
 .wday-0 {
   background-color: #FEE0EC;
+}
+
+/* テーブルCSS */
+
+.mini table, th, td {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  line-height: 1.5;
+
+}
+
+.mini table.type06 th {
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+}
+.mini table.type06 td {
+  width: 350px;
+  padding: 10px;
+  vertical-align: top;
+ }
+
+.mini tr:nth-child(even) {
+  background: #d9d9d9;
+ }
+
+.mini {
+  margin: 30px 20px 0;
+}
+
+.table-tittle {
+  margin: 50px auto 0;
+  text-align: center;
+  font-size: 50px;
 }

@@ -2,7 +2,7 @@ class SchedulesController < ApplicationController
 
   def index
     @schedules = Schedule.order("created_at DESC")
-
+    @user = User.all
   end
 
   def new

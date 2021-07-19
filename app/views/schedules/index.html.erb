@@ -11,33 +11,51 @@
       <% schedules.first(2).each do |schedule| %>
         <div>
           <%= link_to schedule.client %>
-            
-
         </div>
-         
-
       <% end %>
     <% end %>
    </div>
 
-   <div>
-    <table>
+   <div class='all-table'>
+     <div class='table-tittle'>
+      <p>活動報告一覧</p>
+     </div>
+
+    <table class='mini'>
       <thead>
         <tr>
-          <th>タイトル</th>
-          <th>時間</th>
-          <th colspan="3"></th>
+          <th width="5%">投稿日</th>
+          <th width="5%">担当者</th>
+          <th width="5%">顧客名</th>
+          <th width="5%">担当者</th>
+          <th width="10%">商談内容</th>
+          <th width="15%">目的</th>
+          <th width="5%">時間</th>
+          <th width="10%">製品</th>
+          <th width="15%">活動報告</th>
+          <th width="15%">問題・課題/今後の対応</th>
+          <th width="10%">次回</th>
         </tr>
       </thead>
       
       <tbody>
-        <% @schedules.each do |schedules| %>
+ 
+        <% if @schedules.each do |schedules| %>
           <tr>
+            <td><%= schedules.created_at.strftime('%m/%d') %></td>
+            <td><%= schedules.user.last_name %></td>
             <td><%= schedules.client %></td>
-            <td><%= link_to 'Show', schedules %></td>
-            <td><%= link_to 'Edit', edit_schedule_path(schedules.id) %></td>
-            <td><%= link_to 'Destroy',schedule_path(schedules.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= schedules.person %></td>
+            <td><%= schedules.content.name %></td>
+            <td><%= schedules.aim %></td>
+            <td><%= schedules.time %></td>
+            <td><%= schedules.product.name %></td>
+            <td><%= schedules.report %></td>
+            <td><%= schedules.other %></td>
+            <td><%= schedules.start_time%></td>
           </tr>
+        <% end.empty? %>
+          <%= print "" %>%
         <% end %>
       </tbody>
     </table>
