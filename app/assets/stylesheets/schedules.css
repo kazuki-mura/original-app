@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+}
+
+.chat {
+  width: calc(100vw - 200px);
+  background-color: #ffffff;
+}
+
+.calendar-heading {
+  text-align: center;
+  font-size: 20px;
+}
+
+.calendar-title {
+  font-size: 30px;
+}
+
+.simple-calendar th {
+  text-align: center;
+}
+
+.wday-6 {
+  background-color: #DEE6FE;
+}
+
+.wday-0 {
+  background-color: #FEE0EC;
+}
