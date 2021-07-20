@@ -28,32 +28,44 @@
   background-color: #FEE0EC;
 }
 
-/* テーブルCSS */
+/* カレンダーCSS */
 
-.mini table, th, td {
+.calendar {
+  margin: 20px 20px 0;
+}
+
+
+/* テーブルCSS */
+.report-list {
+}
+
+th {
+  text-align: center;
+}
+
+.report-list table, th, td {
   border-collapse: collapse;
   border: 1px solid #ccc;
   line-height: 1.5;
-
 }
 
-.mini table.type06 th {
+.report-list table.type06 th {
   width: 150px;
   padding: 10px;
   font-weight: bold;
   vertical-align: top;
 }
-.mini table.type06 td {
+.report-list table.type06 td {
   width: 350px;
   padding: 10px;
   vertical-align: top;
  }
 
-.mini tr:nth-child(even) {
+.report-list tr:nth-child(even) {
   background: #d9d9d9;
  }
 
-.mini {
+.report-list {
   margin: 30px 20px 0;
 }
 
