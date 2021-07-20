@@ -15,14 +15,15 @@ ActiveRecord::Schema.define(version: 2021_07_15_113208) do
   create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "client", null: false
     t.string "person"
-    t.integer "content", null: false
+    t.integer "content_id", null: false
     t.text "aim"
-    t.integer "time"
-    t.integer "product", null: false
+    t.string "time"
+    t.integer "product_id", null: false
     t.text "report"
-    t.text "othert"
-    t.integer "response", null: false
+    t.text "other"
+    t.integer "response_id", null: false
     t.bigint "user_id", null: false
+    t.datetime "start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_schedules_on_user_id"

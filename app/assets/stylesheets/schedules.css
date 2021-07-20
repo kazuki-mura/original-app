@@ -1,0 +1,76 @@
+.wrapper {
+  display: flex;
+}
+
+.chat {
+  width: calc(100vw - 150px);
+  background-color: #ffffff;
+}
+
+.calendar-heading {
+  text-align: center;
+  font-size: 20px;
+}
+
+.calendar-title {
+  font-size: 30px;
+}
+
+.simple-calendar th {
+  text-align: center;
+}
+
+.wday-6 {
+  background-color: #DEE6FE;
+}
+
+.wday-0 {
+  background-color: #FEE0EC;
+}
+
+/* カレンダーCSS */
+
+.calendar {
+  margin: 20px 20px 0;
+}
+
+
+/* テーブルCSS */
+.report-list {
+}
+
+th {
+  text-align: center;
+}
+
+.report-list table, th, td {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  line-height: 1.5;
+}
+
+.report-list table.type06 th {
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+}
+.report-list table.type06 td {
+  width: 350px;
+  padding: 10px;
+  vertical-align: top;
+ }
+
+.report-list tr:nth-child(even) {
+  background: #d9d9d9;
+ }
+
+.report-list {
+  margin: 30px 20px 0;
+}
+
+.table-tittle {
+  margin: 50px auto 0;
+  text-align: center;
+  font-size: 50px;
+}
