@@ -36,9 +36,6 @@
 
 
 /* テーブルCSS */
-.report-list {
-}
-
 th {
   text-align: center;
 }
@@ -66,11 +63,15 @@ th {
  }
 
 .report-list {
-  margin: 30px 20px 0;
+  margin: 30px auto;
 }
 
 .table-tittle {
-  margin: 50px auto 0;
+  margin: 20px auto 0;
   text-align: center;
   font-size: 50px;
+}
+
+.details {
+  text-align: center;
 }

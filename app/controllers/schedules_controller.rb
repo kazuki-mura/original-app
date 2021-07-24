@@ -18,6 +18,11 @@ class SchedulesController < ApplicationController
     end
   end
 
+ def show
+  @schedules = Schedule.find(params[:id])
+ end
+
+
   private
 
 
