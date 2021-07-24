@@ -1,7 +1,7 @@
 class SchedulesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit, :update, :create]
-  before_action :set_item, only: [:edit, :show, :update] 
-  before_action :redirect_to_index, only: [:edit, :update]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :create, :destroy]
+  before_action :set_item, only: [:edit, :show, :update, :destroy] 
+  before_action :redirect_to_index, only: [:edit, :update, :destroy]
 
   def index
     @schedules = Schedule.order("created_at DESC")
@@ -33,6 +33,11 @@ class SchedulesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @schedule.destroy
+    redirect_to root_path
   end
 
 
