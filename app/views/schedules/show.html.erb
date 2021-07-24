@@ -21,19 +21,19 @@
     </thead>
     <tbody>
         <tr> 
-          <td><%= @schedules.created_at.strftime('%m/%d') %></td>
-          <td><%= @schedules.user.last_name %></td>
-          <td><%= @schedules.client %></td>
-          <td><%= @schedules.person %></td>
-          <td><%= @schedules.content.name %></td>
-          <td><%= @schedules.aim %></td>
-          <td><%= @schedules.time %></td>
-          <td><%= @schedules.product.name %></td>
-          <td><%= @schedules.report %></td>
-          <td><%= @schedules.other %></td>
+          <td><%= @schedule.created_at.strftime('%m/%d') %></td>
+          <td><%= @schedule.user.last_name %></td>
+          <td><%= @schedule.client %></td>
+          <td><%= @schedule.person %></td>
+          <td><%= @schedule.content.name %></td>
+          <td><%= @schedule.aim %></td>
+          <td><%= @schedule.time %></td>
+          <td><%= @schedule.product.name %></td>
+          <td><%= @schedule.report %></td>
+          <td><%= @schedule.other %></td>
           <td>
-          <% if @schedules.start_time.present? %>
-           <%= @schedules.start_time.strftime('%m/%d') %>
+          <% if @schedule.start_time.present? %>
+           <%= @schedule.start_time.strftime('%m/%d') %>
           <% end %>
           </td>
         </tr>
@@ -42,7 +42,7 @@
 
   <div class="all-button">
     <div class="top-button">
-      <%= link_to '編集', edit_schedule_path(@schedules.id), method: :get, class: :button%>
+      <%= link_to '編集', edit_schedule_path(@schedule.id), method: :get, class: :button%>
       <%= link_to '削除', root_path, class: :button%>
     </div>
     <div class="bottom-button">
