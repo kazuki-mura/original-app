@@ -43,7 +43,7 @@
   <div class="all-button">
     <div class="top-button">
       <%= link_to '編集', edit_schedule_path(@schedule.id), method: :get, class: :button%>
-      <%= link_to '削除', root_path, class: :button%>
+      <%= link_to '削除', schedule_path(@schedule.id), method: :delete, class: :button%>
     </div>
     <div class="bottom-button">
       <%= link_to '戻る', root_path , class: :button%>
