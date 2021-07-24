@@ -3,20 +3,20 @@
       <p>活動報告詳細</p>
      </div>
 
-      <table class='report-list'>
+      <table class='show-list'>
         <thead>
           <tr>
-            <th width="5%">投稿日</th>
-            <th width="5%">担当者</th>
-            <th width="10%">顧客名</th>
-            <th width="5%">担当者</th>
-            <th width="10%">商談内容</th>
-            <th width="15%">目的</th>
-            <th width="5%">時間</th>
-            <th width="10%">製品</th>
-            <th width="15%">活動報告</th>
-            <th width="18%">問題・課題/今後の対応</th>
-            <th width="7%">次回</th>
+            <th class="with-1">投稿日</th>
+            <th class="with-2">担当者</th>
+            <th class="with-3">顧客名</th>
+            <th class="with-4">担当者</th>
+            <th class="with-5">商談内容</th>
+            <th class="with-6">目的</th>
+            <th class="with-7">時間</th>
+            <th class="with-8">製品</th>
+            <th class="with-9">活動報告</th>
+            <th class="with-10">問題・課題/今後の対応</th>
+            <th class="with-11">次回</th>
           </tr>
         </thead>
         
@@ -33,10 +33,15 @@
               <td><%= @schedules.report %></td>
               <td><%= @schedules.other %></td>
               <td>
-              <% if @schedules.start_time.present? %>
-                <%= @schedules.start_time.strftime('%m/%d') %>
-              <% end %>
+                <% if @schedules.start_time.present? %>
+                  <%= @schedules.start_time.strftime('%m/%d') %>
+                <% end %>
               </td>
             </tr>
         </tbody>
       </table>
+
+      <div>
+         <%= link_to '編集', root_path %>
+         <%= link_to '削除', root_path %>
+      </div>
