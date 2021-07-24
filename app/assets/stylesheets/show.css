@@ -45,3 +45,18 @@
 .with-11 {
   width: 10%;
 }
+
+/* ボタンCSS */
+.all-button {
+  text-align: center;
+  padding: 10px;
+}
+
+.button {
+  padding: 0 10px;
+  font-size: 20px;
+}
+
+.bottom-button {
+  padding-top: 20px;
+}
