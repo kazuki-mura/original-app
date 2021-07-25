@@ -4,7 +4,7 @@ class SchedulesController < ApplicationController
   before_action :redirect_to_index, only: [:edit, :update, :destroy]
 
   def index
-    @schedules = Schedule.order("created_at DESC")
+    @schedules = Schedule.includes(:user).order("created_at DESC")
     @user = User.all
   end
 
