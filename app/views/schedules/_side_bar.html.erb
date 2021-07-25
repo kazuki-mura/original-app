@@ -5,7 +5,7 @@
     </div>
     <% @user.each do |user| %>
         <div class='user-name'>
-          <%= link_to user.last_name + user.first_name%>
+          <%= link_to user.last_name + user.first_name, user_path(user.id), method: :get %>
         </div>
       <% end %>
   </div>
