@@ -5,7 +5,7 @@ class SchedulesController < ApplicationController
 
   def index
     @schedules = Schedule.includes(:user).order("created_at DESC")
-    @user = User.all
+    @users = User.all
   end
 
   def new
