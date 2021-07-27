@@ -41,15 +41,17 @@
   </table>
 
    <div class="all-button">
-     <% if current_user.id == @schedule.user_id %>
-       <div class="top-button">
-         <%= link_to '編集', edit_schedule_path(@schedule.id), method: :get, class: :button%>
-         <%= link_to '削除', schedule_path(@schedule.id), method: :delete, class: :button%>
-       </div>
-     <% end %>
-     <div class="bottom-button">
-        <%= link_to '戻る', root_path , class: :button%>
-     </div>
+      <% if user_signed_in? %>
+        <% if current_user.id == @schedule.user_id %>
+          <div class="top-button">
+            <%= link_to '編集', edit_schedule_path(@schedule.id), method: :get, class: :button%>
+            <%= link_to '削除', schedule_path(@schedule.id), method: :delete, class: :button%>
+          </div>
+        <% end %>
+      <% end %>
+      <div class="bottom-button">
+          <%= link_to '戻る', root_path , class: :button%>
+      </div>
    </div>
 
 </div>
