@@ -17,7 +17,7 @@
 
       <% schedules.first(2).each do |schedule| %>
         <div>
-          <%= link_to schedule.client %>
+          <%= link_to schedule.client, schedule_path(schedule.id), method: :get %>
         </div>
       <% end %>
     <% end %>
