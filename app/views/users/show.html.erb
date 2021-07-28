@@ -1,0 +1,19 @@
+<div class="wrapper">
+
+  <div class="side-bar">
+  <div>
+     <%= "#{@user.last_name}さんの情報"%>
+   </div>
+   <div>
+     <%= link_to '戻る', root_path , class: :button%>
+   </div>
+  </div>
+
+  <div class="main">
+   <div class="chat">
+    <%= render partial: "schedules/schedules" %>
+    <%= render partial: "schedules/reports" %>
+   </div>
+  </div>
+  
+</div>

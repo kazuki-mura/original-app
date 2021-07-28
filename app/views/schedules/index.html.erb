@@ -1,69 +1,16 @@
+
 <div class="wrapper">
   <div class="side-bar">
     <%= render "side_bar" %>
   </div>
-  <div class="chat">
-   <div class='table-tittle'>
-      <p>月間スケジュール</p>
-     </div>
-   <div class="calendar">
-    <%= month_calendar events:@schedules do |date, schedules| %>
-      <%= date.day %>
 
-      <% schedules.first(2).each do |schedule| %>
-        <div>
-          <%= link_to schedule.client %>
-        </div>
-      <% end %>
-    <% end %>
-   </div>
-
-   <div class='all-table'>
-     <div class='table-tittle'>
-      <p>活動報告一覧</p>
-     </div>
-
-      <table class='report-list'>
-        <thead>
-          <tr>
-            <th width="10%">詳細</th>
-            <th width="5%">投稿日</th>
-            <th width="5%">担当者</th>
-            <th width="10%">顧客名</th>
-            <th width="10%">商談内容</th>
-            <th width="15%">目的</th>
-            <th width="5%">時間</th>
-            <th width="10%">活動報告</th>
-            <th width="18%">問題・課題/今後の対応</th>
-            <th width="7%">次回</th>
-          </tr>
-        </thead>
-        
-        <tbody>
-          <% if @schedules.each do |schedules| %>
-            <tr> 
-              <td class="details"><%= link_to '詳細', schedule_path(schedules.id), method: :get %></td>
-              <td><%= schedules.created_at.strftime('%m/%d') %></td>
-              <td><%= schedules.user.last_name %></td>
-              <td><%= schedules.client %></td>
-              <td><%= schedules.content.name %></td>
-              <td><%= schedules.aim %></td>
-              <td><%= schedules.time %></td>
-              <td><%= schedules.report %></td>
-              <td><%= schedules.other %></td>
-              <td>
-              <% if schedules.start_time.present? %>
-                <%= schedules.start_time.strftime('%m/%d') %>
-              <% end %>
-              </td>
-            </tr>
-          <% end.empty? %>
-            <%= puts "" %>
-          <% end %>
-        </tbody>
-      </table>
+  <div class="main">
+   <div class="chat">
+    <%= render partial: "schedules" %>
+    <%= render partial: "reports" %>
    </div>
   </div>
+  
 </div>
 
 
