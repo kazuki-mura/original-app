@@ -62,3 +62,7 @@ gem 'active_hash'
 gem 'rails-i18n'
 
 gem "jquery-rails"
+
+gem 'ransack'
+
+gem 'pry-rails'
