@@ -2,6 +2,8 @@ class SchedulesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :create, :destroy]
   before_action :set_item, only: [:edit, :show, :update, :destroy] 
   before_action :redirect_to_index, only: [:edit, :update, :destroy]
+  before_action :search_product, only: [:index, :show, :search]
+
 
   def index
     @schedules = Schedule.includes(:user).order("created_at DESC")
@@ -40,6 +42,10 @@ class SchedulesController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @schedules = @p.result.includes(:user).order("created_at DESC")
+  end
+
 
   private
 
@@ -54,5 +60,9 @@ class SchedulesController < ApplicationController
   def redirect_to_index
     @schedule = Schedule.find(params[:id])
     redirect_to root_path unless @schedule.user_id == current_user.id
+  end
+
+  def search_product
+    @p = Schedule.ransack(params[:q])
   end
 end
