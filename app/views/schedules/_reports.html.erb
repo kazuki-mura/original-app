@@ -2,6 +2,16 @@
      <div class='table-tittle'>
       <p>活動報告一覧</p>
      </div>
+     
+    <div class='search'>
+      <%= search_form_for @p, url: search_schedules_path do |f| %>
+        <%= f.label :start_time_gteq, '次回訪問' %>
+        <%= f.date_field :start_time_gteq %> ~ <%= f.date_field :start_time_lteq %>
+        <%= f.submit '検索' %>
+      <% end %>
+     </div>
+
+
 
       <table class='report-list'>
         <thead>
