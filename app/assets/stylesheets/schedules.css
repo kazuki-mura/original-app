@@ -2,9 +2,12 @@
   display: flex;
 }
 
-.chat {
+.main {
   width: calc(100vw - 150px);
   background-color: #ffffff;
+  height: 100vh;
+  margin-left: 150px;
+  margin-top: 100px;
 }
 
 .calendar-heading {
@@ -77,3 +80,8 @@ th {
   text-align: center;
 }
 
+/* 検索CSS */
+
+.search {
+  text-align: center;
+}

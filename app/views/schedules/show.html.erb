@@ -1,57 +1,56 @@
- <div>
-  <div class='table-tittle'>
-  <p>活動報告詳細</p>
-  </div>
+<div class="main-box">
+  <div class="show-page">
+    <div class='table-tittle'>
+    <p>活動報告詳細</p>
+    </div>
 
-  <table class='show-list'>
-    <thead>
-      <tr>
-        <th class="with-1">投稿日</th>
-        <th class="with-2">担当者</th>
-        <th class="with-3">顧客名</th>
-        <th class="with-4">担当者</th>
-        <th class="with-5">商談内容</th>
-        <th class="with-6">目的</th>
-        <th class="with-7">時間</th>
-        <th class="with-8">製品</th>
-        <th class="with-9">活動報告</th>
-        <th class="with-10">問題・課題/今後の対応</th>
-        <th class="with-11">次回</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr> 
-          <td><%= @schedule.created_at.strftime('%m/%d') %></td>
-          <td><%= @schedule.user.last_name %></td>
-          <td><%= @schedule.client %></td>
-          <td><%= @schedule.person %></td>
-          <td><%= @schedule.content.name %></td>
-          <td><%= @schedule.aim %></td>
-          <td><%= @schedule.time %></td>
-          <td><%= @schedule.product.name %></td>
-          <td><%= @schedule.report %></td>
-          <td><%= @schedule.other %></td>
-          <td>
-          <% if @schedule.start_time.present? %>
-           <%= @schedule.start_time.strftime('%m/%d') %>
-          <% end %>
-          </td>
+    <table class='show-list'>
+      <thead>
+        <tr>
+          <th class="with-1">投稿日</th>
+          <th class="with-2">担当者</th>
+          <th class="with-3">顧客名</th>
+          <th class="with-4">担当者</th>
+          <th class="with-5">商談内容</th>
+          <th class="with-6">目的</th>
+          <th class="with-7">時間</th>
+          <th class="with-8">製品</th>
+          <th class="with-9">活動報告</th>
+          <th class="with-10">問題・課題/今後の対応</th>
+          <th class="with-11">次回</th>
         </tr>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+          <tr> 
+            <td><%= @schedule.created_at.strftime('%m/%d') %></td>
+            <td><%= @schedule.user.last_name %></td>
+            <td><%= @schedule.client %></td>
+            <td><%= @schedule.person %></td>
+            <td><%= @schedule.content.name %></td>
+            <td><%= @schedule.aim %></td>
+            <td><%= @schedule.time %></td>
+            <td><%= @schedule.product.name %></td>
+            <td><%= @schedule.report %></td>
+            <td><%= @schedule.other %></td>
+            <td>
+            <% if @schedule.start_time.present? %>
+            <%= @schedule.start_time.strftime('%m/%d') %>
+            <% end %>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
-   <div class="all-button">
-      <% if user_signed_in? %>
-        <% if current_user.id == @schedule.user_id %>
+    <div class="all-button">
+        <% if user_signed_in? && current_user.id == @schedule.user_id %>
           <div class="top-button">
             <%= link_to '編集', edit_schedule_path(@schedule.id), method: :get, class: :button%>
             <%= link_to '削除', schedule_path(@schedule.id), method: :delete, class: :button%>
           </div>
         <% end %>
-      <% end %>
-      <div class="bottom-button">
-          <%= link_to '戻る', root_path , class: :button%>
-      </div>
-   </div>
-
+        <div class="bottom-button">
+            <%= link_to '戻る', root_path , class: :button%>
+        </div>
+    </div>
+  </div>
 </div>

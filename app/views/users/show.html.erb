@@ -7,6 +7,16 @@
    <div>
      <%= link_to '戻る', root_path , class: :button%>
    </div>
+
+   <div class='all-list'>
+        <p>従業員一覧</p>
+    </div>
+
+    <% @users.each do |user| %>
+        <div class='user-name'>
+          <%= link_to user.last_name + user.first_name, user_path(user.id), method: :get %>
+        </div>
+    <% end %>
   </div>
 
   <div class="main">
