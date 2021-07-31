@@ -1,0 +1,91 @@
+<div class="new-main">
+ <div class="new-inner">
+    <p>活動報告</p>
+    <%= form_with(model: @schedule, local: true) do |f| %>
+      <div class="content">
+        <div class="weight-bold-text">
+          訪問日
+          <span class="indispensable">必須</span>
+        </div>
+        <div>
+          <%= f.date_field :visit_date %>
+        </div>
+      </div>
+
+      <div class="content">
+         <div class="weight-bold-text">
+          顧客名
+          <span class="indispensable">必須</span>
+         </div>
+        <%= f.text_field :client, class:"input-cliant" %>
+      </div>
+
+      <div class="content">
+        <div class="weight-bold-text">
+          担当者
+        </div>
+        <%= f.text_field :person, class:"person" %>
+      </div>
+
+      <div class="content">
+        <div class="weight-bold-text">
+            商談内容
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:content_id, Content.all, :id, :name, {}, {class:"pull-down"}) %>    
+      </div>
+
+      <div class="content">
+        <div class="weight-bold-text">
+            目的
+          </div>
+            <%= f.text_area :aim, class:"input" %>
+      </div>
+
+      <div class="content">
+        <div class="weight-bold-text">
+            時間
+        </div>
+          <%= f.time_field :starting_time, class:"input-time" %>
+          <div class="kara"> 〜 </div>
+          <%= f.time_field :ending_time, class:"input-time" %>  
+      </div>
+
+      <div class="content">
+        <div class="weight-bold-text">
+            製品
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.collection_select(:product_id, Product.all, :id, :name, {}, {class:"pull-down"}) %>
+      </div>
+
+      <div class="content">
+        <div class="weight-bold-text">
+            活動報告
+          </div>
+          <%= f.text_area :report, class:"input" %>
+      </div>
+
+      <div class="content">
+        <div class="weight-bold-text">
+            その他
+          </div>
+          <%= f.text_area :other, class:"input"%>
+      </div>
+
+      <div class="content">
+        <div class="weight-bold-text">
+            次回訪問
+            <span class="indispensable">必須</span>
+          </div>
+            <%= f.date_field :start_time %>
+      </div>
+
+      <div class="submit">
+        <%= f.submit "登録する" ,class:"sell-btn" %>
+      </div>
+        <%=link_to 'もどる', root_path, class:"back-btn" %>      
+
+    <% end %>
+ </div>
+</div>

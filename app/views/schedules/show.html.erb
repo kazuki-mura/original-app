@@ -25,10 +25,18 @@
             <td><%= @schedule.created_at.strftime('%m/%d') %></td>
             <td><%= @schedule.user.last_name %></td>
             <td><%= @schedule.client %></td>
+             <% if @schedule.starting_time.present? %>
             <td><%= @schedule.person %></td>
+              <% else %>
+                <td></td>
+              <% end %>
             <td><%= @schedule.content.name %></td>
             <td><%= @schedule.aim %></td>
-            <td><%= @schedule.time %></td>
+             <% if @schedule.starting_time.present? %>
+               <td><%= @schedule.starting_time.strftime('%H:%M')%>〜<%= @schedule.ending_time.strftime('%H:%M')%></td>
+              <% else %>
+                <td></td>
+              <% end %>
             <td><%= @schedule.product.name %></td>
             <td><%= @schedule.report %></td>
             <td><%= @schedule.other %></td>
