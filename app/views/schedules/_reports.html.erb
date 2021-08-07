@@ -16,27 +16,27 @@
       <table class='report-list'>
         <thead>
           <tr>
-            <th width="10%">詳細</th>
-            <th width="5%">来訪日</th>
-            <th width="5%">報告者</th>
-            <th width="10%">顧客名</th>
-            <th width="10%">商談内容</th>
-            <th width="15%">目的</th>
-            <th width="7%">次回</th>
+            <th class="td-01">詳細</th>
+            <th class="td-02">訪問日</th>
+            <th class="td-03">報告者</th>
+            <th class="td-04">顧客名</th>
+            <th class="td-05">商談内容</th>
+            <th class="td-06">目的</th>
+            <th class="td-07">次回</th>
           </tr>
         </thead>
         
         <tbody>
           <% if @schedules.each do |schedules| %>
             <tr> 
-              <td class="details"><%= link_to '詳細', schedule_path(schedules.id), method: :get %></td>
-              <td><%= schedules.visit_date.strftime('%m/%d') %></td>
-              <td><%= schedules.user.last_name %></td>
-              <td><%= schedules.client %></td>
-              <td><%= schedules.content.name %></td>
-              <td><%= schedules.aim %></td>
+              <td class="td-01"><%= link_to '詳細', schedule_path(schedules.id), method: :get %></td>
+              <td class="td-02"><%= schedules.visit_date.strftime('%m/%d') %></td>
+              <td class="td-03"><%= schedules.user.last_name %></td>
+              <td><p class="td-04"><%= schedules.client %></p></td>
+              <td class="td-05"><%= schedules.content.name %></td>
+              <td><p class="td-06"><%= schedules.aim %></p></td>
               <% if schedules.start_time.present? %>
-               <td><%= schedules.start_time.strftime('%m/%d') %></td>
+               <td class="td-07"><%= schedules.start_time.strftime('%m/%d') %></td>
               <% else %>
                <td></td>
               <% end %>

@@ -9,7 +9,7 @@
      <% end %>
 
       <% schedules.first(2).each do |schedule| %>
-        <div class="td-name">
+        <div class="td-cliant">
           <%= link_to schedule.client, schedule_path(schedule.id), method: :get %>
         </div>
       <% end %>

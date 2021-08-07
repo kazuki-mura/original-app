@@ -1,16 +1,14 @@
-<div>
-  <div class="report">
-    <div class='login-user'>
-      <% if user_signed_in? %>
-         <p>こんにちは</p>
-         <%= link_to "#{current_user.last_name}さん", user_path(current_user.id), method: :get %>
-      <% end %>
-    </div>
-
-    <div class='all-list'>
-        <p>従業員一覧</p>
-    </div>
-
+<div class="report">
+  <div class='login-user'>
+    <% if user_signed_in? %>
+        <p>ようこそ</p>
+        <%= link_to "#{current_user.last_name}#{current_user.first_name}さん", user_path(current_user.id), method: :get %>
+    <% end %>
+  </div>
+  <div class='all-list'>
+      <p>従業員一覧</p>
+  </div>
+  <div>
     <% @users.each do |user| %>
         <div class='user-name'>
           <%= link_to user.last_name + user.first_name, user_path(user.id), method: :get %>
