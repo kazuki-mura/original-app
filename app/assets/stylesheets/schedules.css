@@ -86,3 +86,15 @@ th {
 .search {
   text-align: center;
 }
+
+/* マイページCSS */
+
+.mypage-name {
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 30px;
+}
+
+.mypage-back {
+  padding-left: 240px;
+}
