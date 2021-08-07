@@ -30,16 +30,16 @@
       <div class="content">
         <div class="weight-bold-text">
             商談内容
-            <span class="indispensable">必須</span>
-          </div>
-          <%= f.collection_select(:content_id, Content.all, :id, :name, {}, {class:"pull-down"}) %>    
+           <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:content_id, Content.all, :id, :name, {}, {class:"pull-down"}) %>    
       </div>
 
       <div class="content">
         <div class="weight-bold-text">
             目的
-          </div>
-            <%= f.text_area :aim, class:"input" %>
+        </div>
+        <%= f.text_area :aim, class:"input" %>
       </div>
 
       <div class="content">
@@ -53,32 +53,31 @@
 
       <div class="content">
         <div class="weight-bold-text">
-            製品
-            <span class="indispensable">必須</span>
-          </div>
-          <%= f.collection_select(:product_id, Product.all, :id, :name, {}, {class:"pull-down"}) %>
+          製品
+          <span class="indispensable">必須</span>
+        </div>
+         <%= f.collection_select(:product_id, Product.all, :id, :name, {}, {class:"pull-down"}) %>
       </div>
 
       <div class="content">
         <div class="weight-bold-text">
             活動報告
-          </div>
-          <%= f.text_area :report, class:"input" %>
+        </div>
+        <%= f.text_area :report, class:"input" %>
       </div>
 
       <div class="content">
         <div class="weight-bold-text">
-            その他
-          </div>
-          <%= f.text_area :other, class:"input"%>
+          その他
+        </div>
+        <%= f.text_area :other, class:"input"%>
       </div>
 
       <div class="content">
         <div class="weight-bold-text">
-            次回訪問
-            <span class="indispensable">必須</span>
-          </div>
-            <%= f.date_field :start_time %>
+         次回訪問
+        </div>
+        <%= f.date_field :start_time %>
       </div>
 
       <div class="submit">

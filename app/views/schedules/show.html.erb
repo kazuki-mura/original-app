@@ -7,8 +7,8 @@
     <table class='show-list'>
       <thead>
         <tr>
-          <th class="with-1">投稿日</th>
-          <th class="with-2">担当者</th>
+          <th class="with-1">訪問日</th>
+          <th class="with-2">報告者</th>
           <th class="with-3">顧客名</th>
           <th class="with-4">担当者</th>
           <th class="with-5">商談内容</th>
@@ -22,8 +22,8 @@
       </thead>
       <tbody>
           <tr> 
-            <td><%= @schedule.created_at.strftime('%m/%d') %></td>
-            <td><%= @schedule.user.last_name %></td>
+            <td><%= @schedule.visit_date.strftime('%m/%d') %></td>
+            <td><%= @schedule.user.last_name %> <%= @schedule.user.first_name %></td>
             <td><%= @schedule.client %></td>
              <% if @schedule.starting_time.present? %>
             <td><%= @schedule.person %></td>
