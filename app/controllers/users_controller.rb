@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @users = User.all
-    @schedules = @user.schedules.includes(:user)
+    @schedules = @user.schedules.includes(:user).order("created_at DESC")
   end
 
   def search
