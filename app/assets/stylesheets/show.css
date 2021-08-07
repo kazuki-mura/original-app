@@ -1,49 +1,20 @@
 .show-list {
-  margin: 30px 30px;
+  margin: 30px auto;
+  -ms-writing-mode : tb-lr;
+  writing-mode : vertical-lr;
 }
 
-.with-1 {
-  width: 5%;
+.show-list th {
+  -ms-writing-mode : lr-tb;
+  writing-mode : horizontal-tb;
+  padding: 10px;
 }
 
-.with-2 {
-  width: 5%;
-}
-
-.with-3 {
-  width: 10%;
-}
-
-.with-4 {
-  width: 5%;
-}
-
-.with-5 {
-  width: 10%;
-}
-
-.with-6 {
-  width: 10%;
-}
-
-.with-7 {
-  width: 10%;
-}
-
-.with-8 {
-  width: 10%;
-}
-
-.with-9 {
-  width: 15%;
-}
-
-.with-10 {
-  width: 15%;
-}
-
-.with-11 {
-  width: 10%;
+.show-list td {
+  -ms-writing-mode : lr-tb;
+  writing-mode : horizontal-tb;
+  padding: 0 10px;
+  width: 800px;
 }
 
 /* ボタンCSS */

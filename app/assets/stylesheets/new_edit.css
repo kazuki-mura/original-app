@@ -1,0 +1,84 @@
+.new-main {
+  padding-top: 100px;
+  margin: 0 auto;
+  text-align: center;
+  
+}
+
+.new-inner {
+  background-color: rgb(235, 233, 233);
+  margin: 30px 200px 100px 200px;
+  padding: 10px 0 30px;
+}
+
+.new-inner p {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.content {
+  display: flex;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.weight-bold-text {
+  font-weight: bold;
+  min-width: 170px;
+  margin-bottom: 10px;
+  margin-left: 250px;
+}
+
+.indispensable {
+  background: #ea352d;
+  margin-left: 8px;
+  padding: 3px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.input {
+  width: 400px;
+  height: 200px;
+  font-size: 18px;
+}
+
+.input-cliant {
+  width: 400px;
+  font-size: 18px;
+}
+
+.submit {
+  padding-top: 30px;
+  margin-left: 10px;
+}
+
+.pull-down {
+  width: 200px;
+}
+
+.person {
+  width: 195px;
+}
+
+.sell-btn {
+  margin: 0 0 30px ;
+  font-size: 25px;
+  padding: 0 20px;
+
+}
+
+.back-btn {
+ margin: 30px;
+}
+
+.input-time {
+  width: 100px;
+  text-align: center;
+}
+
+.kara {
+  padding: 5px 10px 0;
+}
