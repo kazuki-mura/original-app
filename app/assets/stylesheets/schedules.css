@@ -37,6 +37,13 @@
   margin: 30px 100px 0;
 }
 
+.td-name {
+ width: 150px;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ white-space: nowrap;
+}
+
 /* テーブルCSS */
 th {
   text-align: center;
