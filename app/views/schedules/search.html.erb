@@ -1,3 +1,6 @@
 <div class="main-box">
-    <%= render partial: "reports" %>
+  <div>
+     <%= link_to "PDFダウンロード", post_pdf_index_path(format: "pdf"), method: :get %>
+  </div>
+  <%= render partial: "reports" %>
 </div>
