@@ -1,6 +1,14 @@
 <div class="main-box">
   <div>
-     <%= link_to "PDFダウンロード", post_pdf_index_path(format: "pdf"), method: :get %>
+
+    <%= search_form_for @p, url: post_pdf_index_path(format: "pdf") do |f| %>
+      <% f.label :start_time_gteq, '次回訪問' %>
+      <%= f.date_field :start_time_gteq %> ~ <%= f.date_field :start_time_lteq %>
+      <%= f.submit 'PDFダウンロード',:data => { disable_with: false },formtarget: "_blank", rel: "noopener noreferrer" %>
+    <% end %>
+
   </div>
-  <%= render partial: "reports" %>
+  <div>
+    <%= render partial: "reports" %>
+  </div>
 </div>
