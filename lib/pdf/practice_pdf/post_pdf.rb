@@ -37,19 +37,20 @@ module PracticePdf
     end
     
     def body
-      
       bounding_box([10, 450], width: 200, heigh:10 ) do
         @schedules.each {|f| text f.client, size:10}
       end
-      bounding_box([200, 450], width: 200, heigh:10) do
-        if @schedules.each do |f|
-            text f.person,size:10 
-        end.empty?
-            text "itemの中身はありませんでした。"
+
+      bounding_box([200, 450], width: 200, heigh:10) do  
+       @schedules.each do |f|
+        if f.person.present?    
+         text f.person,size:10 
+        else
+          text " ",size:10 
         end
+       end
       end
     end
-    
-    
+
   end
 end
