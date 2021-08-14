@@ -37,19 +37,30 @@ module PracticePdf
     end
     
     def body
-      
-      bounding_box([10, 450], width: 200, heigh:10 ) do
-        @schedules.each {|f| text f.client, size:10}
-      end
-      bounding_box([200, 450], width: 200, heigh:10) do
+      rows = [["訪問日","会社名","担当", "商談内容","目的","時間", "商品", "報告","次回"]]
+
+      bounding_box([200, 450], width: 500) do
         if @schedules.each do |f|
-            text f.person,size:10 
+          row_data = [
+            [
+              f.visit_date.strftime("%Y/%m/%d"),
+              f.client ? f.client : "",
+              f.person ? f.person: "",
+              f.content.name ? f.content.name : "",
+              f.aim ? f.aim : "",
+              (f.starting_time ? f.starting_time.strftime("%H:%M:%S") : "-") + "〜" + (f.ending_time ? f.ending_time.strftime("%H:%M:%S")  : "-"),
+              f.product.name ? f.product.name : "",
+              f.report ? f.report : "",
+              f.visit_date.strftime("%Y/%m/%d")
+            ]
+          ]
+          rows = rows + row_data
         end.empty?
-            text "itemの中身はありませんでした。"
+          text ""
         end
+        Rails.logger.info(rows)
+        table rows
       end
     end
-    
-    
   end
 end
