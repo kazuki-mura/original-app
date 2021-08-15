@@ -2,9 +2,10 @@ module PracticePdf
   class PostPdf < Prawn::Document
     def initialize(schedules) 
       super(page_size: 'A4',
-            page_layout: :landscape )
+            page_layout: :landscape
+           )
       @schedules = schedules
-      stroke_axis # 座標を表示
+      # stroke_axis # 座標を表示
       font 'app/assets/fonts/SourceHanSans-Regular.ttc'
 
       header
@@ -37,68 +38,43 @@ module PracticePdf
     end
     
     def body
-      bounding_box([0,450], width: 50, height: 15){
-        stroke_bounds
-        pad(2) {text'訪問日', size: 7, align: :center}
-      }
-      bounding_box([50,450], width: 120, height: 15){
-        stroke_bounds
-        pad(2) {text'会社名', size: 7, align: :center}
-      }
-      bounding_box([170,450], width: 50, height: 15){
-        stroke_bounds
-        pad(2) {text'担当', size: 7, align: :center}
-      }
-      bounding_box([220,450], width: 50, height: 15){
-        stroke_bounds
-        pad(2) {text'商談内容', size: 7, align: :center}
-      }
-      bounding_box([270,450], width: 100, height: 15){
-        stroke_bounds
-        pad(2) {text'目的', size: 7, align: :center}
-      }
-      bounding_box([370,450], width: 60, height: 15){
-        stroke_bounds
-        pad(2) {text'時間', size: 7, align: :center}
-      }
-      bounding_box([430,450], width: 60, height: 15){
-        stroke_bounds
-        pad(2) {text'商品', size: 7, align: :center}
-      }
-      bounding_box([490,450], width: 115, height: 15){
-        stroke_bounds
-        pad(2) {text'報告', size: 7, align: :center}
-      }
-      bounding_box([605,450], width: 115, height: 15){
-        stroke_bounds
-        pad(2) {text'報告', size: 7, align: :center}
-      }
-      bounding_box([720,450], width: 50, height: 15){
-        stroke_bounds
-        pad(2) {text'次回', size: 7, align: :center}
-      }
+      rows = [["訪問日","会社名","担当", "商談内容","目的","時間", "商品", "報告","次回"]]
 
-
-
-      
-      bounding_box([0, 430], width: 50, heigh:10 ) do
-        # @schedules.each {|f| text f.visit_date, size:10} エラーが発生
-      end
-
-      bounding_box([50, 430], width: 200, heigh:10 ) do
-        @schedules.each {|f| text f.client, size:7}
-      end
-
-      bounding_box([170, 430], width: 200, heigh:10) do  
-       @schedules.each do |f|
-        if f.person.present?    
-         text f.person,size:7
-        else
-          text " ",size:7 
+      bounding_box([0, 440], width: 770) do
+        if @schedules.each do |f|
+          row_data = [
+            [
+              f.visit_date.strftime("%m/%d"),
+              f.client ? f.client : "",
+              f.person ? f.person : "",
+              f.content.name ? f.content.name : "",
+              f.aim ? f.aim : "",
+              (f.starting_time ? f.starting_time.strftime("%H:%M") : "") + "〜" + (f.ending_time ? f.ending_time.strftime("%H:%M")  : ""),
+              f.product.name ? f.product.name : "",
+              f.report ? f.report : "",
+              f.start_time ? f.start_time.strftime("%m/%d") : ""
+            ]
+          ]
+          rows += row_data
+          end.empty?
+          text ""
         end
-       end
+        table rows,cell_style: {}  do
+          cells.size = 7
+          cells.padding = 10, 5
+          rows(0).align = :center
+          columns(0).width = 30
+          columns(1).width = 100
+          columns(2).width = 60
+          columns(3).width = 60
+          columns(4).width = 185
+          columns(5).width = 55
+          columns(5).align = :center
+          columns(6).width = 60
+          columns(7).width = 185
+          columns(8).width = 30
+        end
       end
     end
-
   end
 end
