@@ -4,13 +4,14 @@
   </div>
   <div class="calendar">
     <%= month_calendar events:@schedules do |date, schedules| %>
-     <%= link_to search_schedules_path(date.day) do %>
+     <%= link_to search_schedules_path(q: { start_time_eq: date }) do %>
       <%= date.day %>
      <% end %>
 
       <% schedules.first(2).each do |schedule| %>
         <div class="td-cliant">
-          <%= link_to schedule.client, schedule_path(schedule.id), method: :get %>
+          <%= link_to schedule.client, search_schedules_path(q: { client_eq: schedule.client }), method: :get %>
+
         </div>
       <% end %>
     <% end %>

@@ -27,16 +27,16 @@
         </thead>
         
         <tbody>
-          <% if @schedules.each do |schedules| %>
+          <% if @schedules.each do |schedule| %>
             <tr> 
-              <td class="td-01"><%= link_to '詳細', schedule_path(schedules.id), method: :get %></td>
-              <td class="td-02"><%= schedules.visit_date.strftime('%m/%d') %></td>
-              <td class="td-03"><%= schedules.user.last_name %></td>
-              <td><p class="td-04"><%= schedules.client %></p></td>
-              <td class="td-05"><%= schedules.content.name %></td>
-              <td><p class="td-06"><%= schedules.aim %></p></td>
-              <% if schedules.start_time.present? %>
-               <td class="td-07"><%= schedules.start_time.strftime('%m/%d') %></td>
+              <td class="td-01"><%= link_to '詳細', schedule_path(schedule.id), method: :get %></td>
+              <td class="td-02"><%= link_to schedule.visit_date.strftime('%m/%d'), search_schedules_path(q: { visit_date_eq: schedule.visit_date }), method: :get %></td>
+              <td class="td-03"><%= schedule.user.last_name %></td>
+              <td><p class="td-04"><%= link_to schedule.client, search_schedules_path(q: { client_eq: schedule.client }), method: :get %></p></td>
+              <td class="td-05"><%= schedule.content.name %></td>
+              <td><p class="td-06"><%= schedule.aim %></p></td>
+              <% if schedule.start_time.present? %>
+               <td class="td-07"><%= schedule.start_time.strftime('%m/%d') %></td>
               <% else %>
                <td></td>
               <% end %>
