@@ -66,3 +66,7 @@ gem "jquery-rails"
 gem 'ransack'
 
 gem 'pry-rails'
+
+gem 'prawn'
+
+gem 'prawn-table'
