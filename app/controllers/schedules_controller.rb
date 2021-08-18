@@ -6,7 +6,7 @@ class SchedulesController < ApplicationController
 
 
   def index
-    @schedules = Schedule.includes(:user).order("created_at DESC")
+    @schedules = Schedule.includes(:user).order("visit_date DESC")
     @users = User.all
   end
 
@@ -43,7 +43,7 @@ class SchedulesController < ApplicationController
   end
 
   def search
-    @schedules = @p.result.includes(:user).order("created_at DESC")
+    @schedules = @p.result.includes(:user).order("visit_date DESC")
   end
 
 
