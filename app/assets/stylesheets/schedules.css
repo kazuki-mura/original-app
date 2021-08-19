@@ -142,3 +142,9 @@ th {
 .mypage-back {
   padding-left: 240px;
 }
+
+/* マイページCSS */
+
+.search-reports {
+  margin:   50px 0 0 40px;
+}
