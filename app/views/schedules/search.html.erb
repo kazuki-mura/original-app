@@ -1,12 +1,17 @@
 <div class="main-box">
-  <div>
 
+  <div>
     <%= search_form_for @p, url: post_pdf_index_path(format: "pdf") do |f| %>
-      <% f.label :start_time_gteq, '次回訪問' %>
-      <%= f.date_field :start_time_gteq %> ~ <%= f.date_field :start_time_lteq %>
+    <div class="display-none">
+      <% f.label :visit_date_gteq, '訪問日' %>
+      <%= f.date_field :visit_date_gteq %> ~ <%= f.date_field :visit_date_lteq %>
+     </div>
       <%= f.submit 'PDFダウンロード',:data => { disable_with: false },formtarget: "_blank", rel: "noopener noreferrer" %>
     <% end %>
-
+  </div>
+ 
+  <div class='table-tittle'>
+      <p>検索結果</p>
   </div>
   <div class="search-reports">
     <%= render partial: "reports" %>

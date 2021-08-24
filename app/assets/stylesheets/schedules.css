@@ -127,8 +127,17 @@ th {
 
 /* 検索CSS */
 
-.search {
+.search-visit {
   text-align: center;
+  padding-top: 10px;
+}
+.search-start {
+  text-align: center;
+  padding: 15px 16px 0 0;
+}
+
+.display-none { 
+  display: none;
 }
 
 /* マイページCSS */
