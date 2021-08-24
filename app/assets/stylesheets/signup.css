@@ -10,7 +10,15 @@
 
 .box {
   width: 350px;
-  height: 450px;
+  height: 420px;
+  margin: 0 auto;
+  border-radius: 4px;
+  border: 1px #ddd solid;
+}
+
+.box-new {
+  width: 350px;
+  height: 570px;
   margin: 0 auto;
   border-radius: 4px;
   border: 1px #ddd solid;
