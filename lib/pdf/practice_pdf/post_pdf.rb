@@ -38,7 +38,7 @@ module PracticePdf
     end
     
     def body
-      rows = [["訪問日","会社名","担当", "商談内容","目的","時間", "商品", "報告","次回"]]
+      rows = [["訪問日","会社名","担当", "商談内容","目的","時間", "商品", "報告","その他","次回"]]
 
       bounding_box([0, 440], width: 770) do
         if @schedules.each do |f|
@@ -52,6 +52,7 @@ module PracticePdf
               (f.starting_time ? f.starting_time.strftime("%H:%M") : "") + "〜" + (f.ending_time ? f.ending_time.strftime("%H:%M")  : ""),
               f.product.name ? f.product.name : "",
               f.report ? f.report : "",
+              f.other ? f.other : "",
               f.start_time ? f.start_time.strftime("%m/%d") : ""
             ]
           ]
@@ -64,15 +65,17 @@ module PracticePdf
           cells.padding = 10, 5
           rows(0).align = :center
           columns(0).width = 30
-          columns(1).width = 100
+          columns(1).width = 90
           columns(2).width = 60
           columns(3).width = 60
-          columns(4).width = 185
+          columns(4).width = 125
           columns(5).width = 55
           columns(5).align = :center
           columns(6).width = 60
-          columns(7).width = 185
-          columns(8).width = 30
+          columns(7).width = 130
+          columns(8).width = 125
+          columns(9).width = 30
+
         end
       end
     end
