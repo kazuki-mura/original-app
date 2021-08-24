@@ -123,9 +123,11 @@ th {
 }
 
 
-
-
 /* 検索CSS */
+
+.search-all {
+  text-align: center;
+}
 
 .search-visit {
   text-align: center;
@@ -133,9 +135,14 @@ th {
 }
 .search-start {
   text-align: center;
-  padding: 15px 16px 0 0;
+  padding: 10px 16px 0 0;
 }
 
+.search-user {
+  padding: 10px 0;
+  font-size: 18px;
+
+}
 .display-none { 
   display: none;
 }
