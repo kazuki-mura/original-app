@@ -1,10 +1,14 @@
 <div class="main-box">
 
-  <div>
+  <div class="pdf-up">
     <%= search_form_for @p, url: post_pdf_index_path(format: "pdf") do |f| %>
     <div class="display-none">
       <% f.label :visit_date_gteq, '訪問日' %>
       <%= f.date_field :visit_date_gteq %> ~ <%= f.date_field :visit_date_lteq %>
+      <%= f.label :start_time_gteq, '次回訪問' %>
+      <%= f.date_field :start_time_gteq %> ~ <%= f.date_field :start_time_lteq %> 
+      <%= f.label :user_id, '報告者' %>
+      <%= f.collection_select :user_id_eq, User.all, :id, :last_name, include_blank: '指定なし' %>
      </div>
       <%= f.submit 'PDFダウンロード',:data => { disable_with: false },formtarget: "_blank", rel: "noopener noreferrer" %>
     <% end %>
