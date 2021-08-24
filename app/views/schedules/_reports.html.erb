@@ -1,49 +1,59 @@
- <div class='all-table'>
-     <div class='table-tittle'>
-      <p>活動報告一覧</p>
-     </div>
-     
-    <div class='search'>
-      <%= search_form_for @p, url: search_schedules_path do |f| %>
+<div class='all-table'>
+
+  <div class='search-all'>
+    <%= search_form_for @p, url: search_schedules_path do |f| %>
+      <div class='search-visit'>
+        <%= f.label :visit_date_gteq, '訪問日' %>
+        <%= f.date_field :visit_date_gteq %> ~ <%= f.date_field :visit_date_lteq %>
+      </div>
+      <div class='search-start'>
         <%= f.label :start_time_gteq, '次回訪問' %>
-        <%= f.date_field :start_time_gteq %> ~ <%= f.date_field :start_time_lteq %>
-        <%= f.submit '検索' %>
-      <% end %>
-     </div>
+        <%= f.date_field :start_time_gteq %> ~ <%= f.date_field :start_time_lteq %> 
+      </div>
+      <div class='search-user'>
+        <%= f.label :user_id, '報告者' %>
+        <%= f.collection_select :user_id_eq, User.all, :id, :last_name, include_blank: '指定なし' %>
+      </div>
+      <div>
+       <%= f.submit '検索' %>
+      </div>
+    <% end %> 
+  </div>
 
-
-
-      <table class='report-list'>
-        <thead>
-          <tr>
-            <th class="td-01">詳細</th>
-            <th class="td-02">訪問日</th>
-            <th class="td-03">報告者</th>
-            <th class="td-04">顧客名</th>
-            <th class="td-05">商談内容</th>
-            <th class="td-06">目的</th>
-            <th class="td-07">次回</th>
-          </tr>
-        </thead>
-        
-        <tbody>
-          <% if @schedules.each do |schedules| %>
-            <tr> 
-              <td class="td-01"><%= link_to '詳細', schedule_path(schedules.id), method: :get %></td>
-              <td class="td-02"><%= schedules.visit_date.strftime('%m/%d') %></td>
-              <td class="td-03"><%= schedules.user.last_name %></td>
-              <td><p class="td-04"><%= schedules.client %></p></td>
-              <td class="td-05"><%= schedules.content.name %></td>
-              <td><p class="td-06"><%= schedules.aim %></p></td>
-              <% if schedules.start_time.present? %>
-               <td class="td-07"><%= schedules.start_time.strftime('%m/%d') %></td>
-              <% else %>
-               <td></td>
-              <% end %>
-            </tr>
-          <% end.empty? %>
-            <%= puts "" %>
+  <table class='report-list'>
+    <thead>
+      <tr>
+        <th class="td-01">詳細</th>
+        <th class="td-02">訪問日</th>
+        <th class="td-03">報告者</th>
+        <th class="td-04">顧客名</th>
+        <th class="td-05">商談内容</th>
+        <th class="td-06">目的</th>
+        <th class="td-07">次回</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% if @schedules.each do |schedule| %>
+        <tr> 
+          <td class="td-01"><%= link_to '詳細', schedule_path(schedule.id), method: :get %></td>
+          <td class="td-02"><%= link_to schedule.visit_date.strftime('%m/%d'), search_schedules_path(q: { visit_date_eq: schedule.visit_date }), method: :get %></td>
+          <td class="td-03"><%= schedule.user.last_name %></td>
+          <td><p class="td-04"><%= link_to schedule.client, search_schedules_path(q: { client_eq: schedule.client }), method: :get %></p></td>
+          <td class="td-05"><%= schedule.content.name %></td>
+          <td><p class="td-06"><%= schedule.aim %></p></td>
+          <% if schedule.start_time.present? %>
+            <td class="td-07"><%= schedule.start_time.strftime('%m/%d') %></td>
+          <% else %>
+            <td></td>
           <% end %>
-        </tbody>
-      </table>
-   </div>
+        </tr>
+      <% end.empty? %>
+        <%= puts "" %>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="bottom-button">
+   <%= link_to '戻る', root_path , class: :button%>
+  </div>
+</div>

@@ -123,12 +123,28 @@ th {
 }
 
 
-
-
 /* 検索CSS */
 
-.search {
+.search-all {
   text-align: center;
+}
+
+.search-visit {
+  text-align: center;
+  padding-top: 10px;
+}
+.search-start {
+  text-align: center;
+  padding: 10px 16px 0 0;
+}
+
+.search-user {
+  padding: 10px 0;
+  font-size: 18px;
+
+}
+.display-none { 
+  display: none;
 }
 
 /* マイページCSS */
@@ -141,4 +157,10 @@ th {
 
 .mypage-back {
   padding-left: 240px;
+}
+
+/* マイページCSS */
+
+.search-reports {
+  margin:   50px 0 0 40px;
 }

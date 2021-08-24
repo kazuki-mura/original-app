@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :search_product, only: [:show, :search]
+  before_action :set_product_column, only: [:show, :search]
 
   def show
     @user = User.find(params[:id])
@@ -17,4 +18,7 @@ class UsersController < ApplicationController
     @p = Schedule.ransack(params[:q])
   end
 
+  def set_product_column
+    @schedule_search = Schedule.select("user_id").distinct
+  end
 end

@@ -3,10 +3,11 @@ class SchedulesController < ApplicationController
   before_action :set_item, only: [:edit, :show, :update, :destroy] 
   before_action :redirect_to_index, only: [:edit, :update, :destroy]
   before_action :search_product, only: [:index, :show, :search]
+  before_action :set_product_column, only: [:index,:search]
 
 
   def index
-    @schedules = Schedule.includes(:user).order("created_at DESC")
+    @schedules = Schedule.includes(:user).order("visit_date DESC")
     @users = User.all
   end
 
@@ -43,7 +44,7 @@ class SchedulesController < ApplicationController
   end
 
   def search
-    @schedules = @p.result.includes(:user).order("created_at DESC")
+    @schedules = @p.result.includes(:user).order("visit_date DESC")
   end
 
 
@@ -64,5 +65,9 @@ class SchedulesController < ApplicationController
 
   def search_product
     @p = Schedule.ransack(params[:q])
+  end
+
+  def set_product_column
+    @schedules_user = Schedule.select("user_id").distinct
   end
 end
