@@ -53,7 +53,7 @@
         <% if user_signed_in? && current_user.id == @schedule.user_id %>
           <div class="top-button">
             <%= link_to '編集', edit_schedule_path(@schedule.id), method: :get, class: :button%>
-            <%= link_to '削除', schedule_path(@schedule.id), method: :delete, class: :button%>
+            <%= link_to '削除', schedule_path(@schedule.id), method: :delete, class: :button ,data: {confirm: "本当に削除しますか？"}%>
           </div>
         <% end %>
         <div class="bottom-button">
