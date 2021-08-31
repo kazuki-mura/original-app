@@ -3,8 +3,7 @@ class SchedulesController < ApplicationController
   before_action :redirect_to_index, only: [:edit, :update, :destroy]
   before_action :set_item, only: [:edit, :show, :update, :destroy] 
   before_action :search_product, only: [:index, :show, :search]
-  before_action :set_product_column, only: [:index,:search]
-
+  before_action :set_product_column, only: [:index,:search]  
 
   def index
     @schedules = Schedule.includes(:user).order("visit_date DESC")
