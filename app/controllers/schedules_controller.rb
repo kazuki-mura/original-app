@@ -1,10 +1,9 @@
 class SchedulesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :create, :destroy]
-  before_action :set_item, only: [:edit, :show, :update, :destroy] 
   before_action :redirect_to_index, only: [:edit, :update, :destroy]
+  before_action :set_item, only: [:edit, :show, :update, :destroy] 
   before_action :search_product, only: [:index, :show, :search]
-  before_action :set_product_column, only: [:index,:search]
-
+  before_action :set_product_column, only: [:index,:search]  
 
   def index
     @schedules = Schedule.includes(:user).order("visit_date DESC")
@@ -53,14 +52,18 @@ class SchedulesController < ApplicationController
   def schedule_params
       params.require(:schedule).permit(:client, :person, :content_id, :aim, :starting_time,:ending_time,:product_id, :report, :other, :start_time, :visit_date).merge(user_id: current_user.id)
   end
-
-  def set_item
-    @schedule = Schedule.find(params[:id])
-  end
-
+  
   def redirect_to_index
     @schedule = Schedule.find(params[:id])
     redirect_to root_path unless @schedule.user_id == current_user.id
+  end
+
+  def set_item
+    if Schedule.exists?(id: params[:id])
+      @schedule = Schedule.find(params[:id]) 
+    else
+      redirect_to root_path
+    end
   end
 
   def search_product
@@ -70,4 +73,5 @@ class SchedulesController < ApplicationController
   def set_product_column
     @schedules_user = Schedule.select("user_id").distinct
   end
+
 end

@@ -11,7 +11,6 @@
       <% schedules.first(2).each do |schedule| %>
         <div class="td-cliant">
           <%= link_to schedule.client, search_schedules_path(q: { client_eq: schedule.client }), method: :get %>
-
         </div>
       <% end %>
     <% end %>
