@@ -16,6 +16,27 @@ RSpec.describe User, type: :model do
         @user.password_confirmation = 'test1234'
         expect(@user).to be_valid
       end
+      
+      it '名前が漢字でも登録できる' do
+        @user.last_name = '太郎'
+        expect(@user).to be_valid
+      end
+
+      it '名前がカタカナでも登録できる' do
+        @user.last_name = 'タロウ'
+        expect(@user).to be_valid
+      end
+
+      it '苗字が漢字でも登録できる' do
+        @user.first_name = '田中'
+        expect(@user).to be_valid
+      end
+
+      it '苗字がカタカナでも登録できる' do
+        @user.first_name = 'タナカ'
+        expect(@user).to be_valid
+      end
+
     end
 
     context 'ユーザー新規登録ができない時' do
