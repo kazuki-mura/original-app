@@ -24,3 +24,4 @@ describe SchedulesController, type: :request do
   end
 end
 
+
