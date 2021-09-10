@@ -1,29 +1,66 @@
-# README
+# 営業報告管理ツール
+ 
+営業を行った際の活動報告を一括で管理、共有できる他、スケジュール表に次回訪問日を  
+表示させる事で次回アポイントの抜け漏れを減らし成約率をあげる為に考案。
 
-# users テーブル
-| Column             | Type       | Options                  |
-| ------------------ | ------     | -----------              |
-| last_name          | string     | null: false              |
-| first_name         | string     | null: false              |
-| email              | string     | null: false, unique: true|
+## 簡単な説明
+ 活動報告の登録をする事で、一括で管理する事ができる他、スケジュール表へ次回訪問  
+ 日が表示される為、抜け漏れ無く次回訪問を行う事ができる。また、期間を検索する事  
+ で報告書としてPDFで提出する事もできる。
+ 
+## 機能
+- 機能1:ユーザー管理機能  
+    報告の管理を行う際はユーザー登録が必要となる。  
+      https://gyazo.com/eb5ad89dffa3288655c6a411e3b890ff  
+    ユーザーはログインする事で報告の管理が行える。  
+      https://gyazo.com/7718249acb6f11c2264fc462a0c435f3
 
-### Association
-- has_many :schedules
+- 機能2:報告登録機能
+    ユーザーは報告する項目を入力する事で報告を登録できる。  
+      https://gyazo.com/2bc4ce82a469c4ecfbb7b35e5d7d5149
+
+- 機能3:スケジュール表管理機能
+    登録した情報はスケジュール表に反映される。  
+      https://gyazo.com/952a86d28e5adf42322d8882a91334b4
+
+- 機能4:報告一覧表示機能
+    登録した情報は一覧で表示される。  
+      https://gyazo.com/da51b2ed46b513e8f29c7913c5a300d9
+ 
+- 機能5:マイページ機能  
+    ユーザー一覧から個人を選択すると、その個人の情報のみが表示される。  
+      https://gyazo.com/ff550eb9adb18380f37672710febfdc9
+
+- 機能6:詳細表示機能
+    詳細ボタンをクリックする事で登録した情報を表示できる。  
+      https://gyazo.com/81f98e28360b40d2dbda0a8879968bf5
+
+- 機能7:編集・削除機能  
+    自分が登録した情報のみ編集・削除ができる  
+    ・編集  
+      https://gyazo.com/c995c99e8a46efbbdd114d899301eab8  
+    ・削除  
+      https://gyazo.com/bf43c3976ba9cd2417da59f7660b8628  
+    ※他ユーザーの投稿は変更出来ない。    
+      https://gyazo.com/8e9d70bae4db909475841d7ca899d97e
+
+- 機能8:検索機能  
+    訪問日、次回訪問、報告者の３項目で検索が行える。  
+      https://gyazo.com/890796b899b4cbd3549b1c93ac40583b  
+    スケジュール表の日付から検索を行う事ができる。  
+      https://gyazo.com/0c04f9da1d5b8f410adae27aec030be3  
+    会社名から取引先ごとの全ての報告を表示することができる。  
+      https://gyazo.com/1a223c8a7b4e5502109e53f068b32882
+
+- 機能9:PDF出力機能
+    検索結果を別タブでPDFで出力  
+      https://gyazo.com/6047b2b51906ca12cbc77be6b17ef40a
 
 
-## schedules テーブル
-| Column                | Type       | Options     |
-| ------------------    | ------     | ----------- |
-| client                | string     | null: false |   <!-- 取引先様 -->
-| parson                | string     |             |   <!-- 担当者様 -->
-| content_id            | integer    | null: false |   <!-- 内容 -->
-| aim                   | text       |             |   <!-- 目的 -->
-| time                  | integer    |             |   <!-- 時間 -->
-| product_id            | integer    | null: false |   <!-- 商品 -->
-| report                | text       |             |   <!-- 活動報告 -->
-| other                 | text       |             |   <!-- その他 -->
-| response_id           | integer    | null: false |   <!-- 手応え -->
-| user_id               | references | null: false, foreign_key: true|
+## 使い方
+ 
+1. 新規登録をしてログインする。
+2. 活動報告をクリックして必要事項を入力して登録
+3. スケジュール表で次回のスケジュールを確認する。
+4. 必要な期間を検索し、報告書としてPDFで印刷
 
-### Association
-- belongs_to :user
